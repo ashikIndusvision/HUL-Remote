@@ -79,7 +79,31 @@ const getPlantData = async ()=>{
     if(res.data.results){
       setLoader(false)
   }
+//   const plantData=[
+//     {
+//         "id": 2,
+//         "plant_name": "HC BARS PLANT",
+//         "is_active": true
+//     },
+//     {
+//         "id": 3,
+//         "plant_name": "HC LIQUIDS PLANT",
+//         "is_active": true
+//     },
+//     {
+//         "id": 4,
+//         "plant_name": "SHAMPOO PLANT",
+//         "is_active": true
+//     },
+//     {
+//         "id": 9,
+//         "plant_name": "PPLIQUID2",
+//         "is_active": true
+//     }
+// ]
   setOrganization(res.data.results);
+  // setOrganization(plantData);
+  // setLoader(false)
   } catch (error) {
     console.log(error);
   }
@@ -142,6 +166,7 @@ else{
   };
  
   const handleStorage =(Plant)=>{
+
     localStorage.setItem("PlantData", JSON.stringify(Plant));
    
   }
@@ -154,33 +179,49 @@ else{
 <div className="slider-container">
       <Slider {...settings}>
       <div className="image_wrapper">
-    <img 
+    {/* <img 
         style={{height: '100%', width: '200px', objectFit: 'contain',objectPosition:'center'}} 
         src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/hamamsoap.png" 
         alt="" 
+    /> */}
+    <img 
+        style={{height: '100%', width: '200px', objectFit: 'contain',objectPosition:'center'}} 
+        src="https://laspesamarket.com/cdn/shop/products/cokdiet__80073.1580962366.jpg?v=1636905969" 
+        alt="" 
     />
 </div>
-<img 
+{/* <img 
         style={{height: '100%', width: '200px', objectFit: 'contain',objectPosition:'center'}} 
         src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/surfexcel.png" 
         alt="" 
+    /> */}
+    <img 
+        style={{height: '100%', width: '100px',maxWidth:"100px", objectFit: 'contain',objectPosition:'center'}} 
+        src="https://m.media-amazon.com/images/I/61+jGc7vLIL.jpg"
+        alt="" 
     />
         <div  className="image_wrapper" >
-
-        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}} src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/dovesachet.png" alt="" />        </div>
+        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}} src="https://www.bigbasket.com/media/uploads/p/l/251023_11-coca-cola-soft-drink-original-taste.jpg" alt="" /> 
+     {/* <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}} src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/dovesachet.png" alt="" />  */}
+       </div>
         <div  className="image_wrapper" >
-        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/sunsilksaceht.png" alt="" />        </div>
+        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://khalidpharmacy.com/wp-content/uploads/2019/02/5668.jpg" alt="" />
+        {/* <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/sunsilksaceht.png" alt="" /> */}
+                </div>
         <div  className="image_wrapper" >
-        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/clinicplus.png" alt="" />        </div>
+        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://www.bigbasket.com/media/uploads/p/l/251019_8-fanta-soft-drink-orange-flavoured.jpg" alt="" />   
+        {/* <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/clinicplus.png" alt="" />    */}
+             </div>
   
       </Slider>
     </div>
 </Col>
-<Col span={14} style={{display:'flex',justifyContent:"start",background:'#dfefff',flexDirection:'column',gap:"0rem",alignItems:"center"}}>
+<Col span={14} style={{display:'flex',justifyContent:"start",background:'#ffdbdb',flexDirection:'column',gap:"0rem",alignItems:"center"}}>
+{/* <Col span={14} style={{display:'flex',justifyContent:"start",background:'#dfefff',flexDirection:'column',gap:"0rem",alignItems:"center"}}> */}
 <Row gutter={24} style={{display:'flex',justifyContent:'center',}}>
   <Col span={24} style={{display:'flex',justifyContent:'center',}}>  
-  
-  <img style={{width:'50%'}} src="https://eimkeia.stripocdn.email/content/guids/CABINET_8270216c780e362a1fbcd636b59c67ae376eb446dc5f95e17700b638b8c3f618/images/131321hulremovebgpreview.png" alt="" />
+  <img style={{width:'50%'}} src="https://assets.upstox.com/content/assets/images/cms/202451/Coca-Cola-logo.png" alt="" />  
+  {/* <img style={{width:'50%'}} src="https://eimkeia.stripocdn.email/content/guids/CABINET_8270216c780e362a1fbcd636b59c67ae376eb446dc5f95e17700b638b8c3f618/images/131321hulremovebgpreview.png" alt="" /> */}
   </Col>
 </Row>
 {
@@ -193,7 +234,8 @@ else{
   ariaLabel="hourglass-loading"
   wrapperStyle={{}}
   wrapperClass=""
-  colors={[' #293dbe', '#293dbe']}
+  // colors={[' #293dbe', '#293dbe']}
+  colors={[' #e13b3b', '#e13b3b']}
   />
   </div>    : 
   <>
@@ -204,7 +246,8 @@ else{
 <div className="" style={{padding:'0 0.5rem',display:'flex',gap:'0.5rem',flexDirection:'column'}}>
   <h3 style={{color:'#000'}}>Plants</h3>
   <h5 >Choose Plants </h5>
-  <h6 style={{borderBottom:'2px solid #2186eb',width:'125px'}} ></h6>
+  <h6 style={{borderBottom:'2px solid #e13b3b',width:'125px'}} ></h6>
+  {/* <h6 style={{borderBottom:'2px solid #2186eb',width:'125px'}} ></h6> */}
 </div>
 <div className="" style={{display:'flex',flexWrap:'wrap',justifyContent:'center',width:'100%',gap:'0.5rem'}}>
 
@@ -267,21 +310,39 @@ else{
 <div className="slider-container">
       <Slider {...settings}>
       <div className="image_wrapper">
-    <img 
+    {/* <img 
         style={{height: '100%', width: '200px', objectFit: 'contain',objectPosition:'center'}} 
         src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/surfexcel.png" 
+        alt="" 
+    /> */}
+     <img 
+        style={{height: '100%', width: '200px', objectFit: 'contain',objectPosition:'center'}} 
+        src="https://www.bigbasket.com/media/uploads/p/xxl/1206985-2_1-minute-maid-fruit-drink-pulpy-orange.jpg" 
         alt="" 
     />
 </div>
         <div  className="image_wrapper" >
 
-        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}} src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/lifebuoy.png" alt="" />        </div>
+        {/* <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}} 
+        src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/lifebuoy.png" alt="" />  
+         */}
+           <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}} 
+        src="https://www.bigbasket.com/media/uploads/p/xxl/40130624_2-monster-energy-drink.jpg" alt="" />  
+       
+              </div>
         <div  className="image_wrapper" >
-        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/comfortgreen.png" alt="" />        </div>
+        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://cdn.uengage.io/uploads/5/image-712616-1700216432.jpeg" alt="" /> 
+        {/* <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/comfortgreen.png" alt="" />  */}
+               </div>
         <div  className="image_wrapper" >
-        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/comfortpink.png" alt="" />        </div>
-        <div  className="image_wrapper" >
-        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/comfortblue.png" alt="" />        </div>
+        <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://www.coca-cola.com/content/dam/onexp/in/en/home-page-test-img/brands/kinley/kinley%20desktop.jpg" alt="" />  
+        {/* <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/comfortpink.png" alt="" />   */}
+              </div>
+        <div
+          className="image_wrapper" >
+            <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://www.coca-cola.com/content/dam/onexp/in/en/brands/rim-zim-desktop.png" alt="" />    
+        {/* <img style={{height: '100%', width: '200px',  objectFit: 'contain',objectPosition:'center'}}src="https://aactxg.stripocdn.email/content/guids/CABINET_a08f84c963ba97ae8e54a37bd01dd75bb5bb673089fc68f65ed61fa0eb796f86/images/comfortblue.png" alt="" />     */}
+            </div>
   
       </Slider>
     </div>

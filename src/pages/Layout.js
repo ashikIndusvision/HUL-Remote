@@ -4,6 +4,7 @@ import { useContext, useEffect, useLayoutEffect, useState } from "react";
 import Login from "./Auth/Login";
 import Main from "../components/layout/Main";
 export default function Layout() {
+// const [auth,setAuth] = useState(true)
 const [auth,setAuth] = useState(false)
 
 const token = localStorage.getItem("token");
@@ -20,11 +21,9 @@ useLayoutEffect(()=>{
 
   return (
     <>
-    
   {
     auth ? <Main><Outlet/> </Main> : <Login/>
   }
-   
     </>
   )
 }
