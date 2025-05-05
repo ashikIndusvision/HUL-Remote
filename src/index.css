@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -134,7 +136,7 @@ label::after {
 }
 
 :where(.css-dev-only-do-not-override-kghr11).ant-tabs-card.ant-tabs-top>.ant-tabs-nav .ant-tabs-tab-active {
-  background-color: rgb(236, 82, 45) !important;
+  background-color: #43996a !important;
 
 }
 
@@ -201,15 +203,15 @@ label::after {
 }
 
 :where(.css-dev-only-do-not-override-kghr11).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
-  background-color: orangered !important;
-  border: orangered !important;
+  background-color: #43996a !important;
+  border: #43996a !important;
 }
 
 
 
 :where(.css-dev-only-do-not-override-kghr11).ant-checkbox-checked .ant-checkbox-inner {
-  background-color: orangered !important;
-  border: orangered !important;
+  background-color: #43996a !important;
+  border: #43996a !important;
 }
 
 :where(.css-dev-only-do-not-override-kghr11).ant-table-wrapper .ant-table-thead>tr>th {
@@ -224,8 +226,8 @@ label::after {
 :where(.css-dev-only-do-not-override-kghr11).ant-notification .ant-notification-notice-wrapper .ant-notification-notice {
   padding: 20px 24px !important;
   width: 384px !important;
-  background-color: orangered !important;
-  color: #fff !important;
+  background-color: #fff !important;
+  color: #000 !important;
   max-width: calc(100vw - 48px) !important;
   overflow: hidden !important;
   line-height: 1.5714285714285714 !important;
@@ -235,7 +237,7 @@ label::after {
 :where(.css-dev-only-do-not-override-kghr11).ant-notification .ant-notification-notice-wrapper .ant-notification-notice-with-icon .ant-notification-notice-message {
   margin-bottom: 8px !important;
   margin-inline-start: 36px !important;
-  color: #fff !important;
+  color: #000 !important;
   font-size: 16px !important;
 }
 
@@ -256,4 +258,9 @@ label::after {
 
 .ai-view-image_container{
   height: 50vh !important;
+}
+
+:where(.css-dev-only-do-not-override-kghr11).ant-affix{
+  transition: none !important;
+  height: auto !important;
 }

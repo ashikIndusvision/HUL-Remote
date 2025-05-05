@@ -33,7 +33,7 @@ const columns = [
   ];
 
   useEffect(()=>{
-    const url = `department/?plant_name=${localPlantData.plant_name}`
+    const url = `department/?plant_name=${localPlantData?.plant_name}`
 
     const getDepartmentData = async()=>{
       try {
@@ -132,7 +132,7 @@ console.log(data)
         <Input placeholder="Enter Department Name"  onChange={(e)=>setData(e.target.value)} />
       </Form.Item>
       <Form.Item >
-        <Button style={{background:'#EC522D',color:'#fff'}} onClick={()=>handlePost('department')}>Create Department</Button>
+        <Button style={{background:'#43996a',color:'#fff'}} onClick={()=>handlePost('department')}>Create Department</Button>
       </Form.Item>
     </Form>
   

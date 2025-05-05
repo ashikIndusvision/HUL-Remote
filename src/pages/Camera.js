@@ -26,7 +26,7 @@ const Camera = () => {
 
 
     const getSystemStatus = async() => {
-      let url = `system-status/?plant_id=${localPlantData.id}`;
+      let url = `system-status/?plant_id=${localPlantData?.id}`;
       try {
         const response = await apiCallInterceptor.get(url)
         setCamera(response.data.results);
@@ -68,7 +68,7 @@ placeholder="Select Camera"
 }
 
     </Select> */}
-    {/* <Button type="primary" style={{fontSize:"1rem",backgroundColor:"#ec522d",margin:"1rem",display:'inline-flex',justifyContent:'center',alignItems:'center'}} ><RightOutlined /></Button> */}
+    {/* <Button type="primary" style={{fontSize:"1rem",backgroundColor:"#43996a",margin:"1rem",display:'inline-flex',justifyContent:'center',alignItems:'center'}} ><RightOutlined /></Button> */}
 
 
     <div className="flex">

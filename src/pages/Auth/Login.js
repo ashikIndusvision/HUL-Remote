@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Card, Col, Row ,Input,Checkbox} from 'antd';
+import { Card, Col, Row ,Input,Checkbox, Button} from 'antd';
 import axios from "axios";
 import { baseURL } from '../../API/API';
 import {  notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import ButtonComponent from '../../components/Button';
 const Login = () => {
   const navigate = useNavigate()
 
@@ -25,7 +26,7 @@ const openNotification = (param) => {
     const {status,message} = param
     
     api[status]({
-      message: <div style={{fontSize:"1.1rem",fontWeight:"600"}}>{message || ""}</div>,
+      message: <div style={{fontSize:"1.1rem",fontWeight:"600" ,}}>{message || ""}</div>,
     //   description:
     //     'I will never close automatically. This is a purposely very very long description that has many many characters and words.',
       duration: 0,
@@ -49,7 +50,6 @@ if(loginPayload.email_or_phone !== "" && loginPayload.password !== "" && error.U
     const res = await axios.post(`${baseURL}login/`,loginPayload);
 
     if(res.status == 200){
-      console.log(res.data)
         setuserdata(res.data)
         localStorage.setItem("token",JSON.stringify(res.data.access_token))
         localStorage.setItem("refreshToken",JSON.stringify(res.data.refresh_token))
@@ -141,10 +141,10 @@ setloginPayload((prev)=>({...prev,[name]:value}))
         </div>
 
         <div className="" style={{display:'flex',gap:'1rem'}}>
-        <Checkbox  style={{fontWeight:'700'}}>Remember Me</Checkbox>
+        {/* <Checkbox  style={{fontWeight:'700'}}>Remember Me</Checkbox> */}
         </div>
             <div className="">
-        <button style={{padding:'0.8rem 3rem',background:'#ff4403',border:'none',borderRadius:'5px',color:'#fff',fontWeight:'600'}} onClick={loginPost}>Login</button>
+ <ButtonComponent handleClick = {loginPost} title="Login" style={{padding:"0rem 3rem"}}   />
     </div>
     </div>
     {/* <div className="">

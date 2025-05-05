@@ -35,7 +35,7 @@ const columns = [
 
   useEffect(()=>{
     // const url = `${baseURL}machine`
-    const url = `${baseURL}machine/?plant_name=${localPlantData.plant_name}`;
+    const url = `${baseURL}machine/?plant_name=${localPlantData?.plant_name}`;
 
     const getMachineData = async()=>{
       try {
@@ -135,7 +135,7 @@ console.log(data)
         <Input placeholder="Enter Department Name"  onChange={(e)=>setData(e.target.value)} />
       </Form.Item>
       <Form.Item >
-        <Button style={{background:'#EC522D',color:'#fff'}} onClick={()=>handlePost('department')}>Create Machine</Button>
+        <Button style={{background:'#43996a',color:'#fff'}} onClick={()=>handlePost('department')}>Create Machine</Button>
       </Form.Item>
     </Form>
   

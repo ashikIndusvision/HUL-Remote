@@ -17,6 +17,8 @@ import {
 import { Hourglass } from 'react-loader-spinner'
 import dayjs from 'dayjs';
 import useApiInterceptor from '../hooks/Interceptor';
+import ButtonComponent from '../components/Button';
+import { themeStyles } from '../config';
 
 const { RangePicker } = DatePicker;
 
@@ -183,12 +185,12 @@ const Reports = () => {
     }
     url = `reports/?page=${page}&page_size=${pageSize}&`;
     // url += `machine=${selectedMachine}&department=${selectedDepartment}`;
-    // url += `?plant_id=${localPlantData.id}&from_date=${fromDate}&to_date=${toDate}&machine_id=${selectedMachine}&department_id=${selectedDepartment}&product_id=${selectedProduct}&defect_id=${selectedDefect}`;
+    // url += `?plant_id=${localPlantData?.id}&from_date=${fromDate}&to_date=${toDate}&machine_id=${selectedMachine}&department_id=${selectedDepartment}&product_id=${selectedProduct}&defect_id=${selectedDefect}`;
     // if (fromDate && toDate) {
     //   url += `&from_date=${fromDate}&to_date=${toDate}`;
     // }
-    if (localPlantData.id) {
-      url += `plant_id=${localPlantData.id}&`;
+    if (localPlantData?.id) {
+      url += `plant_id=${localPlantData?.id}&`;
     }
     if (fromDate) {
       url += `from_date=${fromDate}&`;
@@ -267,7 +269,7 @@ const Reports = () => {
 
 
   const getMachines = async() => {
-    let url = `machine/?plant_name=${localPlantData.plant_name}`;
+    let url = `machine/?plant_name=${localPlantData?.plant_name}`;
 
     try {
       const response = await apiCallInterceptor.get(url);
@@ -299,7 +301,7 @@ const Reports = () => {
 
 
   const getDefects = async() => {
-    let url = `defect/?plant_name=${localPlantData.plant_name}`;
+    let url = `defect/?plant_name=${localPlantData?.plant_name}`;
 
     try {
       const response = await apiCallInterceptor.get(url);
@@ -331,7 +333,7 @@ const Reports = () => {
 
   const [departmentOptions, setDepartmentOptions] = useState([]);
   const getDepartments =async () => {
-    let url = `department/?plant_name=${localPlantData.plant_name}`;
+    let url = `department/?plant_name=${localPlantData?.plant_name}`;
 
     try {
       const response = await apiCallInterceptor.get(url);
@@ -372,7 +374,7 @@ const Reports = () => {
 
   const initialTableData = async(page, pageSize) => {
     setLoader(true)
-    const url = `reports/?page=${page}&plant_id=${localPlantData.id}&page_size=${pageSize}`;
+    const url = `reports/?page=${page}&plant_id=${localPlantData?.id}&page_size=${pageSize}`;
     try {
       const response = await apiCallInterceptor.get(url);
       const { results, total_count, page_size } = response.data
@@ -387,6 +389,7 @@ const Reports = () => {
       });
     } catch (error) {
       console.error('Error:', error);
+      setLoader(false)
     }
 
     // axios.get(url, {
@@ -413,7 +416,7 @@ const Reports = () => {
   };
 
   const prodApi = async() => {
-    const url = `product/?plant_name=${localPlantData.plant_name}`;
+    const url = `product/?plant_name=${localPlantData?.plant_name}`;
 
     try {
       const response = await apiCallInterceptor.get(url);
@@ -685,14 +688,15 @@ const url = `download-reports/?${filteredParams}`;
             inputReadOnly={true}
             value={selectedDate ? [dayjs(selectedDate[0], dateFormat), dayjs(selectedDate[1], dateFormat)] : []}
           />
-
-          <Button type="primary" onClick={() => handleApplyFilters(1, pagination.pageSize)} style={{ fontSize: "1rem", backgroundColor: "#ec522d", marginRight: "10px" }}>Apply filters</Button>
+        <ButtonComponent handleClick={() => handleApplyFilters(1, pagination.pageSize)} title="Apply filters" />
+          
           {filterActive ?
-            <Button type="primary" onClick={resetFilter} style={{ fontSize: "1rem", backgroundColor: "#ec522d", marginRight: "10px" }}>Reset Filter</Button>
+                  <ButtonComponent handleClick={resetFilter} title="Reset Filter" />
+
+
             : null}
-          <Button type="primary" icon={<DownloadOutlined />} size='large' style={{ fontSize: "1rem", backgroundColor: "#ec522d" }} onClick={downloadExcelApi}>
-            Download
-          </Button>
+  
+          <ButtonComponent handleClick={downloadExcelApi} title="Download" />
         </div>
 
         {
@@ -704,7 +708,7 @@ const url = `download-reports/?${filteredParams}`;
               ariaLabel="hourglass-loading"
               wrapperStyle={{}}
               wrapperClass=""
-              colors={[' #ec522d', '#ec522d']}
+              colors={[themeStyles.primary, themeStyles.primary]}
             />
           </div> :
             <Table

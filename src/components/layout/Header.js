@@ -40,9 +40,11 @@ import styled from "styled-components";
 import avtar from "../../assets/images/team-2.jpg";
 import { baseURL,accessToken } from "../../API/API";
 import useApiInterceptor from "../../hooks/Interceptor";
+import { IndusvisionLogo, themeStyles } from "../../config";
+import ButtonComponent from "../Button";
 const ButtonContainer = styled.div`
   .ant-btn-primary {
-    background-color: #ec522d;
+    background-color: #43996a;
   }
   .ant-btn-success {
     background-color: #52c41a;
@@ -57,7 +59,7 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
   }
   .ant-switch-active {
-    background-color: #ec522d;
+    background-color: #43996a;
   }
 `;
 
@@ -117,11 +119,11 @@ const credit = [
     key={0}
   >
     <path
-      fill="#ec522d"
+      fill="#43996a"
       d="M4 4C2.89543 4 2 4.89543 2 6V7H18V6C18 4.89543 17.1046 4 16 4H4Z"
     ></path>
     <path
-      fill="#ec522d"
+      fill="#43996a"
       fillRule="evenodd"
       clipRule="evenodd"
       d="M18 9H2V14C2 15.1046 2.89543 16 4 16H16C17.1046 16 18 15.1046 18 14V9ZM4 13C4 12.4477 4.44772 12 5 12H6C6.55228 12 7 12.4477 7 13C7 13.5523 6.55228 14 6 14H5C4.44772 14 4 13.5523 4 13ZM9 12C8.44772 12 8 12.4477 8 13C8 13.5523 8.44772 14 9 14H10C10.5523 14 11 13.5523 11 13C11 12.4477 10.5523 12 10 12H9Z"
@@ -252,13 +254,9 @@ const setting = [
 ];
 
 function Header({
-  placement,
-  name,
+
   subName,
-  onPress,
-  handleSidenavColor,
-  handleSidenavType,
-  handleFixedNavbar,
+
 }) {
   const { Title, Text } = Typography;
   const apiCallInterceptor = useApiInterceptor();
@@ -313,58 +311,29 @@ const PlantName = JSON.parse(localData)
 
     </>)
   }
-  const logout = async()=>{
-    try {
-    await apiCallInterceptor.post(`logout/`,{
-        refresh_token:refreshTokens
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  const handleLogout  = async ()=>{
-      setModal1Open(false)
-     openNotification()
-  
-       navigate('/login');
-      logout()
-      localStorage.clear();
 
-  }
   return (
     <>
     {contextHolder}
-      <Modal
-        title={<div style={{textAlign:'center',padding:'1rem 0',fontWeight:'600',fontSize:'1.2rem'}}>Are You Sure You Want To Logout?</div>}
-        style={{
-          top: 20,
-        }}
-        open={modal1Open}
-        onCancel={() => setModal1Open(false)}
-        footer={null}
-      >
-        <div className="" style={{display:'flex',justifyContent:'center'}}>
-        <Button onClick={handleLogout} style={{background:'orangeRed',color:'#fff'}}>LOGOUT</Button>
-        </div>
-      </Modal>
+   
       {/* <div className="setting-drwer" onClick={showDrawer}>
         {setting}
       </div> */}
-      <Row gutter={[24, 0]}>
-      <Col span={12}>
-      <div  className="" style={{padding:"0.5rem 2rem", borderRadius:'10px',background:'#fafafa',    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px', width:"100%",textAlign:"center",color:'#000',fontWeight:'600',fontSize:'1.6rem',maxWidth:"350px"}}>
+      <Row gutter={[24, 0]} style={{  height:"100%", padding:"0.5rem"}} >
+      <Col span={12} style={{display:"flex", alignItems:"center" , height:"100%" , }} >
+      <div  className="" style={{padding:"0.5rem 2rem", width:"100%",textAlign:"center",background:"#fff",color:themeStyles.primary,fontWeight:'600',fontSize:'1.6rem',maxWidth:"350px" , borderRadius:"10px"}}>
     
-         {PlantName.plant_name}
+         {PlantName?.plant_name ? PlantName?.plant_name : "No Plant Data" } 
         </div>
       </Col>
-        <Col span={12}  style={{display:'flex',justifyContent:'end'}}>
+        {/* <Col span={12}  style={{display:'flex',justifyContent:'end'}}>
         
         <div onClick={()=>setModal1Open(true)} className="" style={{padding:"0.5rem 2rem", borderRadius:'10px',cursor:'pointer',background:'#fafafa',boxShadow:'rgba(0, 0, 0, 0.1) 0px 2px 4px',border:'0.5px solid #8080806e',display:'flex',justifyContent:'center',alignItems:'center'}}>
         <img src="https://w7.pngwing.com/pngs/253/714/png-transparent-logout-heroicons-ui-icon-thumbnail.png" style={{height:'30px',width:'30px'}} alt="" />
 
          <span style={{color:"#000",fontWeight:'700'}}> Logout</span>
         </div>
-        </Col>
+        </Col> */}
             
       </Row>
       <Row gutter={[24, 0]} style={{marginTop:'2rem'}}>
@@ -377,25 +346,18 @@ const PlantName = JSON.parse(localData)
               {name.replace("/", "")}
             </Breadcrumb.Item>
           </Breadcrumb> */}
-          <div className="ant-page-header-heading">
+          {/* <div className="ant-page-header-heading">
             <span
               className="ant-page-header-heading-title"
               style={{ textTransform:'capitalize',fontSize:'1.4rem' }}
             >
-              {subName.replace("/", "")}
+              {subName?.replace("/", "")}
             </span>
-          </div>
+          </div> */}
+      
         </Col>
         <Col span={24} md={18} className="header-control"  >
-          <div className="" style={{display:"flex",gap:"2rem", fontSize:"1rem",fontWeight:"500",}}> 
-          <div className="" style={{padding:'0.1rem 1rem',display:"flex",gap:"2rem", fontSize:"1rem",fontWeight:"500",border:'0.5px solid #c6c6c6',alignItems:'center',justifyContent:'center',borderRadius:'10px'}}>
-          <DateContainer/>
-          <Clock />
-          </div>
-          <div className="" style={{height:"50px",width:'50px',border:'0.5px solid #c6c6c6',borderRadius:'50%'}}>
-            <img src="https://xtemko.stripocdn.email/content/guids/CABINET_d8f211887c57378d14d80cfb73c09f4b2db394a5cf71f6e0cdda10e02f8c454f/images/vin_logo.jpeg" alt="" width={100} style={{padding:'0.5rem'}} />
-          </div>
-          </div>
+    
   
     
           {/* <Badge size="small" count={4}>
@@ -441,7 +403,7 @@ const PlantName = JSON.parse(localData)
                   <ButtonContainer>
                     <Button
                       type="primary"
-                      onClick={() => handleSidenavColor("#ec522d")}
+                      onClick={() => handleSidenavColor("#43996a")}
                     >
                       1
                     </Button>

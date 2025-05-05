@@ -213,7 +213,7 @@ const Insights = () => {
   ariaLabel="hourglass-loading"
   wrapperStyle={{}}
   wrapperClass=""
-  colors={[' #ec522d', '#ec522d']}
+  colors={[' #43996a', '#43996a']}
   />
             </div> : 
           <Table columns={columns} dataSource={tableData}  

@@ -9,9 +9,17 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+
+
+:root {
+  --primary: #43996a; /* Default fallback color */
+  --secondary: #072060;
+  --bg-sidenav:#072060;
+}
+
 body {
   padding: 0 0 30px 0;
-  background-color: #fafafa;
+  background-color: #fff;
   letter-spacing: -0.3px;
   color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
@@ -46,6 +54,7 @@ body {
   overflow: auto;
   margin: 0;
   padding: 33px 20px;
+  background: var(--bg-sidenav) !important;
 }
 
 .layout-dashboard .ant-layout-sider.sider-primary .brand img {
@@ -56,7 +65,7 @@ body {
   margin: 18px 0;
   border: none;
   height: 1px;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 .layout-dashboard .ant-layout-sider.sider-primary .brand {
@@ -137,14 +146,14 @@ body {
 
 .layout-dashboard .ant-layout-sider.sider-primary.ant-layout-sider-primary .ant-menu-item.ant-menu-item-selected .active .icon,
 .layout-dashboard .ant-layout-sider.sider-primary.ant-layout-sider-primary .ant-menu-item .active .icon {
-  background-color: #ec522d;
+  background-color: #43996a;
 }
 
 .layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item.ant-menu-item-selected .active .icon,
 .layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item .active .icon,
 .layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu.ant-menu-item-selected .active .icon,
 .layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu .active .icon {
-  background-color: #ec522d;
+  background-color: #43996a;
 }
 
 .layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item .icon,
@@ -203,7 +212,7 @@ body {
 }
 
 .layout-dashboard .ant-layout-sider.sider-primary.ant-layout-sider-primary .footer-box {
-  background-color: #ec522d;
+  background-color: #43996a;
   color: #fff;
   box-shadow: none;
 }
@@ -230,7 +239,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
-  background-color: #ec522d;
+  background-color: #43996a;
 }
 
 .layout-dashboard .ant-layout-sider.sider-primary.ant-layout-sider-primary .footer-box h6 {
@@ -314,13 +323,16 @@ body {
 }
 
 .layout-dashboard .ant-layout-header {
-  background: transparent;
-  height: auto;
-  padding: 16px;
-  margin: 10px 4px;
+  background: var(--bg-sidenav);
+  /* padding: 16px;
+  /* margin: 10px 4px; */ 
   line-height: inherit;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   transition: 0.2s;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  height: 77px;
+  padding: 0 !important;
 }
 
 .layout-dashboard .ant-breadcrumb>span .ant-breadcrumb-link a {
@@ -642,7 +654,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav li span.antico
 }
 
 ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav li.ant-menu-item-selected span.anticon {
-  background: #ec522d;
+  background: #43996a;
   color: #fff;
 }
 
@@ -657,7 +669,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav li.ant-menu-it
 ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
   li:hover
   span.anticon {
-  background: #ec522d;
+  background: #43996a;
   color: #fff;
 } */
 
@@ -688,7 +700,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
   box-shadow: 0px 4px 6px #0000001f;
   border-radius: 6px;
   font-size: 19px;
-  background: #ec522d;
+  background: #43996a;
   color: #fff;
   direction: ltr;
   margin-bottom: 15px;
@@ -708,7 +720,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
 }
 
 .ant-layout {
-  background: #fafafa;
+  background: #e6eafa;
 }
 
 .pageheader {
@@ -908,7 +920,7 @@ button.ant-btn.bell strong {
   width: 48px;
   height: 48px;
   text-align: center;
-  background: #ec522d;
+  background: var(--icon-bg) ;
   color: #fff;
   border-radius: 0.5rem;
   margin-left: auto;
@@ -978,7 +990,7 @@ button.ant-btn.bell strong {
 }
 
 .sales ul li:last-child span.anticon {
-  color: #ec522d;
+  color: #43996a;
 }
 
 .sales ul li {
@@ -998,7 +1010,7 @@ button.ant-btn.bell strong {
 
 span.blue {
   margin-left: 5px;
-  color: #ec522d;
+  color: #43996a;
   font-weight: 600;
 }
 
@@ -1010,7 +1022,7 @@ span.blue {
 
 span.blue {
   margin-left: 5px;
-  color: #ec522d;
+  color: #43996a;
   font-weight: 600;
 }
 
@@ -1039,13 +1051,13 @@ span.blue {
 }
 
 .antd-pro-pages-dashboard-analysis-style-salesExtra a:hover {
-  color: #ec522d;
-  border: 1px solid #ec522d;
+  color: #43996a;
+  border: 1px solid #43996a;
 }
 
 .antd-pro-pages-dashboard-analysis-style-salesExtra a.active {
-  color: #ec522d;
-  border: 1px solid #ec522d;
+  color: #43996a;
+  border: 1px solid #43996a;
 }
 
 .ant-list-box th {
@@ -1247,7 +1259,7 @@ img {
 }
 
 .icon-move-right {
-  color: #ec522d;
+  color: #43996a;
 
   display: block;
 }
@@ -2067,7 +2079,7 @@ body {
 }
 
 .layout-default .ant-layout-footer .menu-nav-social a:hover svg {
-  fill: #ec522d;
+  fill: #43996a;
 }
 
 .layout-default .ant-layout-footer .copyright a {
@@ -2392,7 +2404,7 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
   width: 64px;
   height: 64px;
   margin: auto;
-  background-color: #ec522d;
+  background-color: #43996a;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgb(0 0 0 / 12%);
   display: flex;
@@ -3095,7 +3107,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .btn-sig
 .layout-dashboard .ant-affix .ant-layout-header {
   background: #fff;
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
-  margin: 10px 20px;
+
   z-index: 10;
 }
 

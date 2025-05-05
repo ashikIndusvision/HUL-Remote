@@ -36,7 +36,7 @@ const columns = [
 
    const getProdData = async ()=>{
     try {
-  const url = `product/?plant_name=${localPlantData.plant_name}`;
+  const url = `product/?plant_name=${localPlantData?.plant_name}`;
       const response = await apicallInterceptor.get(url)
       setTableData(response.data.results)
     } catch (error) {
@@ -144,7 +144,7 @@ console.log(data)
         <Input placeholder="Enter Department Name"  onChange={(e)=>setData(e.target.value)} />
       </Form.Item>
       <Form.Item >
-        <Button style={{background:'#EC522D',color:'#fff'}} onClick={()=>handlePost('department')}>Create Alerts</Button>
+        <Button style={{background:'#43996a',color:'#fff'}} onClick={()=>handlePost('department')}>Create Alerts</Button>
       </Form.Item>
     </Form>
   

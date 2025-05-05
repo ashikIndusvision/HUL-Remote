@@ -138,7 +138,7 @@ return (
       <Input placeholder="input placeholder" value={handleChange} />
       </Form.Item>
       <Form.Item >
-        <Button style={{background:'#EC522D',color:'#fff'}} onClick={()=>handlePost()}>Create Defects</Button>
+        <Button style={{background:'#43996a',color:'#fff'}} onClick={()=>handlePost()}>Create Defects</Button>
       </Form.Item>
     </Form>
   

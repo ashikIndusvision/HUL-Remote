@@ -7,6 +7,7 @@ import {  EditOutlined} from '@ant-design/icons';
 import { baseURL } from '../../API/API';
 import { ColorRing } from 'react-loader-spinner'
 import useApiInterceptor from '../../hooks/Interceptor';
+import ButtonComponent from '../../components/Button';
 
 
 const Alerts = () => {
@@ -129,9 +130,9 @@ setData((prev)=>({...prev,[name]:value}))
 </Col>
 <Col span={3}  >
 
-<Button type="primary" style={{width:'100%',padding:'0'}} danger onClick={()=>setModal2Open(true)}>
-User Creation
-    </Button>   </Col>
+    <ButtonComponent title="User Creation" handleClick={()=>setModal2Open(true)} />
+    
+      </Col>
 </Row>
 <Row gutter={24} style={{display:'flex',flexDirection:'column',gap:'2rem',margin:'2rem'}} >
   <Col span={16} style={{display:'flex',justifyContent:'space-between'}}>

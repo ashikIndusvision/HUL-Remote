@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "../App.css"
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Link, useNavigate, useNavigation } from "react-router-dom";
-import { Card, notification, Space, Col, Row, Typography, Select, DatePicker, Checkbox, Button, Dropdown, Menu } from "antd";
+import { Card, notification, Space, Col, Row, Typography, Select, DatePicker, Checkbox, Dropdown, Menu } from "antd";
 import Paragraph from "antd/lib/typography/Paragraph";
 import { VideoCameraOutlined, BugOutlined, AlertOutlined, NotificationOutlined } from '@ant-design/icons';
 import StackChart from "../components/chart/StackChart";
@@ -17,6 +17,8 @@ import ProductionVsReject from "../components/chart/ProductionVsReject"
 import dayjs from 'dayjs';
 import { Hourglass } from "react-loader-spinner";
 import useApiInterceptor from "../hooks/Interceptor";
+import Button from "../components/Button";
+import { themeStyles } from "../config";
 
 function Dashboard() {
   const apiInterceptor = useApiInterceptor()
@@ -86,9 +88,9 @@ function Dashboard() {
     const [fromDate, toDate] = dateRange;
 
     let url = `dashboard/?`;
-    // url += `plant_id=${localPlantData.id}&from_date=${fromDate}&to_date=${toDate}&machine_id=${selectedMachine}&department_id=${selectedDepartment}&product_id=${selectedProduct}&defect_id=${selectedDefect}`;
-    if (localPlantData.id) {
-      url += `plant_id=${localPlantData.id}&`;
+    // url += `plant_id=${localPlantData?.id}&from_date=${fromDate}&to_date=${toDate}&machine_id=${selectedMachine}&department_id=${selectedDepartment}&product_id=${selectedProduct}&defect_id=${selectedDefect}`;
+    if (localPlantData?.id) {
+      url += `plant_id=${localPlantData?.id}&`;
     }
     if (fromDate) {
       url += `from_date=${fromDate}&`;
@@ -153,7 +155,7 @@ function Dashboard() {
   };
 
   const getSystemStatus = async () => {
-    let url = `system-status/?plant_id=${localPlantData.id}`;
+    let url = `system-status/?plant_id=${localPlantData?.id}`;
     try {
       const response = await apiInterceptor.get(url)
       setActiveMachines(response.data.results.filter(machine => machine.system_status === true));
@@ -185,7 +187,7 @@ function Dashboard() {
   }, []);
 
   const getMachines = async() => {
-    let url = `machine/?plant_name=${localPlantData.plant_name}`;
+    let url = `machine/?plant_name=${localPlantData?.plant_name}`;
 
     try {
       const response = await apiInterceptor.get(url);
@@ -216,7 +218,7 @@ function Dashboard() {
   };
 
   const getDepartments =async () => {
-    let url = `department/?plant_name=${localPlantData.plant_name}`;
+    let url = `department/?plant_name=${localPlantData?.plant_name}`;
 
     try {
       const response = await apiInterceptor.get(url);
@@ -264,7 +266,7 @@ function Dashboard() {
     setLoaderData(true)
 
     const [fromDate, toDate] = [startDate, endDate].map(date => date.toISOString().slice(0, 10)); // Format dates as YYYY-MM-DD
-    const url = `dashboard/?plant_id=${localPlantData.id}`;
+    const url = `dashboard/?plant_id=${localPlantData?.id}`;
     // const url = `${domain}dashboard/`;
 try {
   const response = await apiInterceptor.get(url);
@@ -300,7 +302,7 @@ try {
   const initialProductionData = async() => {
     
     // const [fromDate, toDate] = [startDate, endDate].map(date => date.toISOString().slice(0, 10)); // Format dates as YYYY-MM-DD
-    const url = `defct-vs-machine/?plant_id=${localPlantData.id}`;
+    const url = `defct-vs-machine/?plant_id=${localPlantData?.id}`;
     // const url = `${domain}dashboard/`;
     try {
       const response = await apiInterceptor.get(url);
@@ -324,7 +326,7 @@ try {
   const [alertData, setAlertData] = useState(null);
 
   const prodApi = async  () => {
-    const url = `product/?plant_name=${localPlantData.plant_name}`;
+    const url = `product/?plant_name=${localPlantData?.plant_name}`;
    
     try {
       const response = await apiInterceptor.get(url);
@@ -484,9 +486,9 @@ try {
 
   useEffect(() => {
     const initializeWebSocket = () => {
-      const socket = new WebSocket(`ws://localhost:8000/ws/notifications/${localPlantData.id}/`);
+      const socket = new WebSocket(`ws://localhost:8000/ws/notifications/${localPlantData?.id}/`);
       socket.onopen = () => {
-        console.log(`WebSocket connection established ${localPlantData.id}`);
+        console.log(`WebSocket connection established ${localPlantData?.id}`);
         setIsSocketConnected(true); // Update connection status
       };
 
@@ -509,20 +511,20 @@ try {
 
           //   <ExclamationCircleOutlined 
           //     style={{
-          //       color: '#ec522d',
+          //       color: '#43996a',
           //     }}
           //   />
           // ),
           //     style: { whiteSpace: 'pre-line' },  // Added style for new line character
           //     btn: (
           //       <Space>
-          //         <Button type="primary" size="small" onClick={() => api.destroy(key)} style={{color:"#ec522d"}}>
+          //         <Button type="primary" size="small" onClick={() => api.destroy(key)} style={{color:"#43996a"}}>
           //     Close
           //   </Button>
           //         {/* <Button type="link" size="small" onClick={() => api.destroy()}>
           //           Destroy All
           //         </Button> */}
-          //         <Button type="primary" size="large"  style={{fontSize:"1rem",backgroundColor:"#ec522d"}} onClick={() => api.destroy()}>
+          //         <Button type="primary" size="large"  style={{fontSize:"1rem",backgroundColor:"#43996a"}} onClick={() => api.destroy()}>
           //          <Link to="/insights">View All Errors </Link> 
           //         </Button>
           //       </Space>
@@ -587,7 +589,7 @@ try {
       'Notification was closed',
     );
   };
-  console.log(menu, "<<<")
+
   return (
     <>
       {contextHolder}
@@ -638,7 +640,7 @@ try {
             </Select>
 
             <RangePicker
-              // showTime
+  
               size="large"
               style={{ marginRight: "10px", minWidth: "280px" }}
               onChange={handleDateRangeChange}
@@ -646,10 +648,11 @@ try {
               inputReadOnly={true}
               value={selectedDate ? [dayjs(selectedDate[0], dateFormat), dayjs(selectedDate[1], dateFormat)] : []}
             />
-
-            <Button type="primary" onClick={handleApplyFilters} style={{ fontSize: "1rem", backgroundColor: "#ec522d", marginRight: "10px" }}>Apply filters</Button>
+            <Button handleClick={handleApplyFilters} title={"Apply filters"} style={{fontSize: "1rem", marginRight: "10px" , width:"200px"}} />
+        
             {filterActive ?
-              <Button type="primary" onClick={resetFilter} style={{ fontSize: "1rem", backgroundColor: "#ec522d", marginRight: "10px" }}>Reset Filter</Button>
+                     <Button handleClick={handleApplyFilters} title={"Reset Filter"}  />
+
               : null}
 
 
@@ -851,7 +854,7 @@ try {
                   ariaLabel="hourglass-loading"
                   wrapperStyle={{}}
                   wrapperClass=""
-                  colors={[' #ec522d', '#ec522d']}
+                  colors={[themeStyles.primary, themeStyles.primary]}
                 />
               </div>
               :

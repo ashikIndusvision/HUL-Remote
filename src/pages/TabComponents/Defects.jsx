@@ -58,7 +58,7 @@ const Defects = () => {
   
 
   const fetchData = async () => {
-    const url = `defect/?plant_name=${localPlantData.plant_name}`;
+    const url = `defect/?plant_name=${localPlantData?.plant_name}`;
     try {
       const res = await apicallInterceptor.get(url);
       setTableData(res.data.results);
@@ -91,7 +91,7 @@ const Defects = () => {
     const payload = {
       name: data,
       color_code: color,
-      plant: localPlantData.id,
+      plant: localPlantData?.id,
     };
 
     try {
@@ -121,7 +121,7 @@ const Defects = () => {
     const payload = {
       name: data,
       color_code: color,
-      plant: localPlantData.id,
+      plant: localPlantData?.id,
     };
 
     try {
@@ -170,7 +170,7 @@ const Defects = () => {
           </Button>
         </div>
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <Button type="primary" style={{ background: '#EC522D', color: '#fff' }} onClick={() => setModalOpen(true)}>
+          <Button type="primary" style={{ background: '#43996a', color: '#fff' }} onClick={() => setModalOpen(true)}>
             Add Defects
           </Button>
         </div>
@@ -186,7 +186,7 @@ const Defects = () => {
 
             
           </Button>,
-          <Button key="submit" type="primary" style={{ background: '#EC522D', color: '#fff' }} onClick={handlePost}>
+          <Button key="submit" type="primary" style={{ background: '#43996a', color: '#fff' }} onClick={handlePost}>
             Create Defects
           </Button>,
         ]}
@@ -221,7 +221,7 @@ const Defects = () => {
           <Button key="cancel" onClick={() => {setEditModalOpen(false)}}>
             Cancel
           </Button>,
-          <Button key="submit" type="primary" style={{ background: '#EC522D', color: '#fff' }} onClick={handlePut}>
+          <Button key="submit" type="primary" style={{ background: '#43996a', color: '#fff' }} onClick={handlePut}>
             Edit Defect
           </Button>,
         ]}

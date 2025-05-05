@@ -10,6 +10,7 @@ import { AuthToken, baseURL } from "../API/API";
 import { Hourglass } from 'react-loader-spinner';
 import "../assets/styles/ai-smart.css";
 import useApiInterceptor from "../hooks/Interceptor";
+import { themeStyles } from "../config";
 
 const AiSmartView = () => {
 const apiCallInterceptor = useApiInterceptor();
@@ -33,7 +34,7 @@ const apiCallInterceptor = useApiInterceptor();
 
   useEffect(() => {
 const getAiamrtviewData = async()=>{
-  let url = `defect/?plant_name=${localPlantData.plant_name}`
+  let url = `defect/?plant_name=${localPlantData?.plant_name}`
   try {
     const response = await apiCallInterceptor.get(url);
     setDefects(response.data.results);
@@ -172,7 +173,7 @@ getAiamrtviewData()
             ariaLabel="hourglass-loading"
             wrapperStyle={{}}
             wrapperClass=""
-            colors={['#ec522d', '#ec522d']}
+            colors={['#43996a', '#43996a']}
           />
         </div>
         :
@@ -203,10 +204,10 @@ getAiamrtviewData()
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                   {renderNextFourImages()}
                 </div>
-                <button className="prev-button btn btn-primary" style={{ backgroundColor: "rgb(236, 82, 45)", border: "none", outline: "none" }} onClick={handlePrev}>
+                <button className="prev-button btn btn-primary" style={{ backgroundColor: themeStyles.primary, border: "none", outline: "none" }} onClick={handlePrev}>
                   <LeftOutlined />
                 </button>
-                <button className="next-button btn btn-primary" style={{ backgroundColor: "rgb(236, 82, 45)", border: "none", outline: "none" }} onClick={handleNext}>
+                <button className="next-button btn btn-primary" style={{ backgroundColor: themeStyles.primary, border: "none", outline: "none" }} onClick={handleNext}>
                   <RightOutlined />
                 </button>
                 <div className="pagination-controls">
