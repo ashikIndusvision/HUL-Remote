@@ -1,4 +1,4 @@
-
+export const LoginLogoIndusvision = "https://storage.googleapis.com/vin-dashboard/indus_logo.png"
 export const IndusvisionLogo =  "https://eimkeia.stripocdn.email/content/guids/CABINET_8270216c780e362a1fbcd636b59c67ae376eb446dc5f95e17700b638b8c3f618/images/indus_logo_dev.png"
 export const clientLogo = "https://eimkeia.stripocdn.email/content/guids/CABINET_8270216c780e362a1fbcd636b59c67ae376eb446dc5f95e17700b638b8c3f618/images/131321hulremovebgpreview.png"
 

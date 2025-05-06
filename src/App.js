@@ -32,6 +32,7 @@ import Login from "./pages/Auth/Login.js"
 import ResetPassword from "./pages/Auth/ResetPassword.js"
 import axios from "axios"
 import { baseURL } from "./API/API.js";
+import Notfound from "./pages/Notfound.js";
 
 const App = () => {
 
@@ -123,6 +124,10 @@ const App = () => {
     {
       path: "/Plant",
       element: <Plant />,
+    },
+    {
+      path: "*",
+      element: <Notfound />,
     },
 
   ]);

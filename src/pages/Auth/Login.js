@@ -5,7 +5,7 @@ import { baseURL } from '../../API/API';
 import {  notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import ButtonComponent from '../../components/Button';
-import { IndusvisionLogo } from '../../config';
+import { IndusvisionLogo, LoginLogoIndusvision } from '../../config';
 const Login = () => {
   const navigate = useNavigate()
 
@@ -88,12 +88,12 @@ setloginPayload((prev)=>({...prev,[name]:value}))
   return (
     <>
        {contextHolder}
-    <div className="" style={{background:'#faf5f5',height:'100vh',width:'100%',overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
+    <div className="" style={{background:'#e6eafa',height:'100vh',width:'100%',overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
     <Col span={8} style={{maxWidth:'500px'}}>
 
       <Card  bordered={false} style={{padding:'2rem',borderRadius:'25px'}}>
     <div className="" style={{display:"flex", justifyContent:"center"}}>
-    <img src={IndusvisionLogo} style={{height:'70px'}} alt="" />
+    <img src={LoginLogoIndusvision} style={{height:'70px'}} alt="" />
     </div>
     <div className="" style={{display:'flex',flexDirection:'column',gap:'1rem',}}>
         <h3 >Login</h3>
