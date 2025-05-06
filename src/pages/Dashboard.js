@@ -871,18 +871,33 @@ try {
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                   <Card bordered={false} className="criclebox h-full">
                     {/* <LineChart data={tableData}/> */}
-                    <ProductionVsReject data={productionData} />
+                    {
+                      productionData && (
+                        <ProductionVsReject data={productionData} />
+
+                      )
+                    }
                   </Card>
                 </Col>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                   <Card bordered={false} className="criclebox h-full">
-                    <StackChart data={tableData} />
+                    {
+                      tableData && (
+
+                        <StackChart data={tableData} />
+                      )
+                    }
 
                   </Card>
                 </Col>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                   <Card bordered={false} className="criclebox h-full">
-                    <PieChart data={tableData} selectedDate={selectedDate} />
+                    {
+                      tableData && (
+
+                        <PieChart data={tableData} selectedDate={selectedDate} />
+                      )
+                    }
                   </Card>
                 </Col>
               </>

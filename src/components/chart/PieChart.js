@@ -70,7 +70,7 @@ function PieChart({data,selectedDate} ) {
     setChartData({ labels, series });
   }, [data]);
 
-  if (!data || Object.keys(data).length === 0) {
+  if (!data || Object.keys(data)?.length === 0) {
     return <div style={{ fontWeight: "700", textAlign: 'center' ,display:'flex',justifyContent:'center',alignItems:'center', height: '300px'}}>NO DATA</div>; // or some other fallback UI
   }
 
@@ -104,7 +104,7 @@ function PieChart({data,selectedDate} ) {
         },
         colors: chartData.labels.map((label, index) => {
           const predefinedColors = ['#FF5733', '#3357FF', '#000080', '#00FFFF', "#FFFF00", '#33FF57', '#3357HF'];
-          return defectColors[label] || predefinedColors[index % predefinedColors.length];
+          return defectColors[label] || predefinedColors[index % predefinedColors?.length];
         }),
         labels: chartData.labels,
         legend: {

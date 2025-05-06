@@ -124,14 +124,14 @@ function StackChart({ data }) {
     <div>
       <Title level={5}>Bar Graph for Defects</Title>
     </div>
-    <div style={{ height: '400px', overflowX: dateKeys.length > 7 ? 'auto' : 'hidden' }}>
-  <div style={{ width: `${dateKeys.length > 7 ? dateKeys.length * 60 : 100}%` }}>
+    <div style={{ height: '400px', overflowX: dateKeys?.length > 7 ? 'auto' : 'hidden' }}>
+  <div style={{ width: `${dateKeys?.length > 7 ? dateKeys?.length * 60 : 100}%` }}>
     <ReactApexChart
       options={chartData.options}
       series={chartData.series}
       type="bar"
       height={350}
-      width={dateKeys.length > 7 ? dateKeys.length * 60 : '99%'}
+      width={dateKeys?.length > 7 ? dateKeys?.length * 60 : '99%'}
     />
   </div>
 </div>
