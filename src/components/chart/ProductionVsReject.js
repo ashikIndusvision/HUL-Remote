@@ -9,10 +9,10 @@ function ProductionVsReject({ data }) {
 
   // Check if data is valid
   if (!data || Object.keys(data).length === 0) {
-    return <div style={{ fontWeight: "700", textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>NO DATA</div>; // or some other fallback UI
+    return <div style={{ fontWeight: "700", textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '300px' }}>NO DATA</div>; // or some other fallback UI
   }
 
-  // Process data to create series for bar chart
+  
   const categories = data.map(item => item.date);
   const series = [
 
@@ -121,18 +121,23 @@ function ProductionVsReject({ data }) {
 
   return (
     <div className="barchart">
-      <div>
-        <Title level={5}>Production vs Defects</Title>
-      </div>
-      <ReactApexChart
-        options={chartData.options}
-        series={chartData.series}
-        type="bar"
-        height={350}
-        width={"100%"}
-
-      />
+    <div>
+      <Title level={5}>Production vs Defects</Title>
     </div>
+    <div style={{ height: '400px', overflowY: data.length > 7 ? 'auto' : 'hidden' }}>
+  <div style={{ height: `${data.length > 7 ? data.length * 40 : 400}px` }}>
+    <ReactApexChart
+      options={chartData.options}
+      series={chartData.series}
+      type="bar"
+      height={data.length > 7 ? data.length * 40 : 400} // Adjust height based on data length
+      width="100%"
+    />
+  </div>
+</div>
+
+  </div>
+
   );
 }
 

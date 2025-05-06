@@ -71,70 +71,66 @@ function PieChart({data,selectedDate} ) {
   }, [data]);
 
   if (!data || Object.keys(data).length === 0) {
-    return <div style={{ fontWeight: "700", textAlign: 'center' ,display:'flex',justifyContent:'center',alignItems:'center'}}>NO DATA</div>; // or some other fallback UI
+    return <div style={{ fontWeight: "700", textAlign: 'center' ,display:'flex',justifyContent:'center',alignItems:'center', height: '300px'}}>NO DATA</div>; // or some other fallback UI
   }
 
   let clickedVal;
   return (
-    <div>
-      <div>
-        <Title level={5}>{selectedDate ? `Pie Chart from ${selectedDate[0]}  to  ${selectedDate[1]}` : "Pie Chart for Defects (7 days)"}</Title>
-      </div>
-      <ReactApexChart
-        options={{
-          chart: {
-            width: 380,
-            type: 'pie',
-            events: {
-              dataPointSelection: (event, chartContext, opts) => {
-                const clickedIndex = opts.dataPointIndex;
-                const clickedLabel = chartData.labels[clickedIndex];
-                clickedVal = defectData.filter((val) => val.name === clickedLabel);
-              },
-              click: (event, chartContext, opts) => {
-                if (opts?.globals?.selectedDataPoints[0]?.length > 0) {
-                  navigate(`/reports`, { state: { clickedVal } });
-                }
-              },
-            },
-          
-          },
-          colors: chartData.labels.map((label, index) => {
-            const predefinedColors = ['#FF5733', '#3357FF', '#000080', '#00FFFF', "#FFFF00", '#33FF57', '#3357HF'];
-            return defectColors[label] || predefinedColors[index % predefinedColors.length];
-          }),
-          labels: chartData.labels,
-          responsive: [{
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200
-              },
-              legend: {
-                position: 'bottom',
+<div style={{ height: "450px", display: 'flex', flexDirection: 'column' }}>
+  <div>
+    <Title level={5}>
+      {selectedDate ? `Pie Chart from ${selectedDate[0]} to ${selectedDate[1]}` : "Pie Chart for Defects (7 days)"}
+    </Title>
+  </div>
 
-              },
-              markers: {
-                size: 6,
-                shape: undefined, // circle, square, line, plus, cross
-                strokeWidth: 2,
-                fillColors: undefined,
-                radius: 2,
-                customHTML: undefined,
-                onClick: function(){
-                  return null
-                },
-                offsetX: 0,
-                offsetY: 0
+  <div style={{ flex: 1, minHeight: '0px' }}>
+    <ReactApexChart
+      options={{
+        chart: {
+          type: 'pie',
+          height: 400, // <- fixed height for chart, so it respects space
+          events: {
+            dataPointSelection: (event, chartContext, opts) => {
+              const clickedIndex = opts.dataPointIndex;
+              const clickedLabel = chartData.labels[clickedIndex];
+              clickedVal = defectData.filter((val) => val.name === clickedLabel);
             },
-            }
-          }]
-        }}
-        series={chartData.series}
-        type="pie"
-        height={350}
-      />
-    </div>
+            click: (event, chartContext, opts) => {
+              if (opts?.globals?.selectedDataPoints[0]?.length > 0) {
+                navigate(`/reports`, { state: { clickedVal } });
+              }
+            },
+          },
+        },
+        colors: chartData.labels.map((label, index) => {
+          const predefinedColors = ['#FF5733', '#3357FF', '#000080', '#00FFFF', "#FFFF00", '#33FF57', '#3357HF'];
+          return defectColors[label] || predefinedColors[index % predefinedColors.length];
+        }),
+        labels: chartData.labels,
+        legend: {
+          position: 'bottom',
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: '100%',
+              height: 300
+            },
+            legend: {
+              position: 'bottom',
+            },
+          }
+        }]
+      }}
+      series={chartData.series}
+      type="pie"
+      height={400} // <- must match the chart height above
+    />
+  </div>
+</div>
+
+
   );
 }
 

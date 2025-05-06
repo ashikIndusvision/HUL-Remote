@@ -264,3 +264,30 @@ label::after {
   transition: none !important;
   height: auto !important;
 }
+
+
+
+/* For Webkit-based browsers like Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 4px !important;  /* Vertical scrollbar width */
+  height: 4px !important; /* Horizontal scrollbar height */
+  scrollbar-color: #43996a white !important; /* Green thumb, white track (for Firefox) */
+  scrollbar-width: thin !important; /* Thin scrollbar (for Firefox) */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #43996a !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: white !important;
+  border-radius: 4px !important;
+}
+
+/* Remove the end arrows in Webkit browsers */
+::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+

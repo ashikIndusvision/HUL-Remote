@@ -246,6 +246,10 @@ function Dashboard() {
     //     console.error('Error fetching department data:', error);
     //   });
   };
+
+
+
+  
   const initialDateRange = () => {
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - 7); // 7 days ago
@@ -272,11 +276,13 @@ try {
   const response = await apiInterceptor.get(url);
   setLoaderData(false)
   const { active_products, ...datesData } = response.data;
+
   setTableData(datesData);
   setActiveProd(active_products);
 } catch (error) {
   console.error('Error:', error);
   setLoaderData(false)
+ 
 }
     // axios.get(url, {
     //   headers: {
@@ -296,6 +302,7 @@ try {
   };
 
 
+  
 
   // console.log(Object.keys(tableData).filter(res=>res !== "active_products"),"<<<tabledata")
 
@@ -309,6 +316,8 @@ try {
       setProductionData(response.data.data_last_7_days);
     } catch (error) {
       console.error('Error:', error);
+
+
     }
 
     // axios.get(url, {

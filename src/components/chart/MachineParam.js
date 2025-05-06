@@ -11,6 +11,11 @@ function MachineParam() {
   const [chartSeries, setChartSeries] = useState([]);
   const localItems = localStorage.getItem("PlantData")
   const localPlantData = JSON.parse(localItems)
+
+
+
+
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -24,6 +29,7 @@ function MachineParam() {
         }
       } catch (error) {
         console.error("Error fetching machine parameters:", error);
+     
       }
     };
 
@@ -106,12 +112,16 @@ function MachineParam() {
         <h4>Real-Time Manufacturing DPMU
         </h4>
       </div>
-      <ReactApexChart
-        options={chartOptions}
-        series={chartSeries}
-        type="bar"
-        height={350}
-      />
+      <div style={{ overflowX: 'auto' }}>
+  <div style={{ width: `${Math.max(totalData.length * 60, 900)}px` }}>
+    <ReactApexChart
+      options={chartOptions}
+      series={chartSeries}
+      type="bar"
+      height={350}
+    />
+  </div>
+</div>
     </div>
   );
 }

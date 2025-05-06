@@ -143,7 +143,7 @@ const Insights = () => {
   const initialTableData = async() => {
     setLoader(true)
     // const domain = `http://localhost:8010/`;
-   const url = `defect-notifications/?plant_id=${localPlantData.id}`;
+   const url = `defect-notifications/?plant_id=${localPlantData?.id}`;
    try {
     const response = await apiCallInterceptor.get(url)
     setTableData(response.data.results);
