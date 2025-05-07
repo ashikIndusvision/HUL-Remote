@@ -116,22 +116,20 @@ function StackChart({ data }) {
   if (!data || Object.keys(data).length === 0) {
     return <div style={{ fontWeight: "700", textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '300px' }}>NO DATA</div>; // or some other fallback UI
   }
-  const dateKeys = Object.keys(data).filter(key => key !== "active_products");
-
+  const dateCount = Object.keys(data).length;
 
   return (
     <div>
     <div>
       <Title level={5}>Bar Graph for Defects</Title>
     </div>
-    <div style={{ height: '400px', overflowX: dateKeys?.length > 7 ? 'auto' : 'hidden' }}>
-  <div style={{ width: `${dateKeys?.length > 7 ? dateKeys?.length * 60 : 100}%` }}>
+    <div style={{ height: '400px', overflowX: dateCount > 7 ? 'auto' : 'hidden', whiteSpace: 'nowrap' }}>
+  <div style={{ width: dateCount > 7 ? `${dateCount * 60}px` : '100%', display: 'inline-block' }}>
     <ReactApexChart
       options={chartData.options}
       series={chartData.series}
       type="bar"
       height={350}
-      width={dateKeys?.length > 7 ? dateKeys?.length * 60 : '99%'}
     />
   </div>
 </div>

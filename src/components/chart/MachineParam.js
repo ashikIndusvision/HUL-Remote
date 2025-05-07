@@ -56,13 +56,11 @@ function MachineParam() {
     const categories = Object.keys(groupedData);
     const allParameters = new Set(totalData.map(item => item.parameter));
 
-    const seriesData = Array.from(allParameters).map(parameter => {
-      return {
-        name: "DPMU",
-        data: categories.map(date => Math.round(groupedData[date][parameter] || 0)),
-        color: totalData.find(item => item.parameter === parameter)?.color_code || "#888"
-      };
-    }).filter(series => series.data.some(count => count > 0));
+    const seriesData = Array.from(allParameters).map(parameter => ({
+      name: parameter,
+      data: categories.map(date => Math.round(groupedData[date][parameter] || 0))
+    })).filter(series => series.data.some(count => count > 0));
+    
 
     setChartSeries(seriesData);
 
@@ -77,6 +75,7 @@ function MachineParam() {
       xaxis: {
         categories: categories
       },
+      colors: ['#5190dd'], // all bars will be blue
       yaxis: {
         labels: {
           formatter: val => Math.round(val)
@@ -88,6 +87,7 @@ function MachineParam() {
       },
       fill: { opacity: 1 }
     };
+    
     setChartOptions(chartOptions);
   }, [totalData]);
 
@@ -100,15 +100,16 @@ function MachineParam() {
         </div>
       ) : (
         <div style={{ overflowX: "auto" }}>
-          <div style={{ width: `${Math.max(totalData?.length * 60, 900)}px` }}>
-            <ReactApexChart
-              options={chartOptions}
-              series={chartSeries}
-              type="bar"
-              height={350}
-            />
-          </div>
+        <div style={{ width: totalData.length > 15 ? `${totalData.length * 60}px` : "100%" }}>
+          <ReactApexChart
+            options={chartOptions}
+            series={chartSeries}
+            type="bar"
+            height={350}
+          />
         </div>
+      </div>
+    
       )}
     </div>
   );

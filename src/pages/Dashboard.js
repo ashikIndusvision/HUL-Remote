@@ -660,7 +660,7 @@ try {
             <Button handleClick={handleApplyFilters} title={"Apply filters"} style={{fontSize: "1rem", marginRight: "10px" , width:"200px"}} />
         
             {filterActive ?
-                     <Button handleClick={handleApplyFilters} title={"Reset Filter"}  />
+                     <Button handleClick={resetFilter} title={"Reset Filter"}  />
 
               : null}
 
