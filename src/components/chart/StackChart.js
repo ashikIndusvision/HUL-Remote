@@ -42,7 +42,6 @@ function StackChart({ data }) {
     //     });
     //     // Set the defect colors state
     //     setDefectColors(colors);
-
     //   })
     //   .catch(error => {
     //     console.error('Error fetching defect colors:', error);

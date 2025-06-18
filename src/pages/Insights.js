@@ -150,6 +150,7 @@ const Insights = () => {
     setLoader(false)
    } catch (error) {
     console.error('Error:', error);
+    setLoader(false)
    }
     // axios.get(url)
     //   .then(response => {
@@ -217,7 +218,10 @@ const Insights = () => {
   />
             </div> : 
           <Table columns={columns} dataSource={tableData}  
-           style={{margin:"1rem 0"}}/>
+           style={{margin:"1rem 0" , }}
+           scroll={{ x: "max-content" }} 
+           />
+          
           }
     </div>
   );

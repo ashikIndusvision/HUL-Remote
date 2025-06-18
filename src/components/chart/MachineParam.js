@@ -71,7 +71,23 @@ function MachineParam() {
         stacked: true,
         toolbar: { show: false },
         zoom: { enabled: true }
+        
       },
+      grid: {
+        show: false,
+        xaxis: {
+          lines: {
+            show: false
+          }
+        },
+        yaxis: {
+          lines: {
+            show: false
+          }
+        }
+      }
+      ,
+      
       xaxis: {
         categories: categories
       },
@@ -95,7 +111,7 @@ function MachineParam() {
     <div>
       <h4>Real-Time Manufacturing DPMU</h4>
       {loading ? (
-        <div style={{ textAlign: "center", padding: "40px" }}>
+        <div style={{ textAlign: "center", padding: "40px" , justifyContent:"center", alignItems:"center" }}>
           <Spin size="large" tip="Loading data..." />
         </div>
       ) : (

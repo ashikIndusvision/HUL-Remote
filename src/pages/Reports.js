@@ -724,6 +724,7 @@ const url = `download-reports/?${filteredParams}`;
               style={{ margin: "1rem 0", fontSize: "1.5rem" }}
               loading={loader}
               onChange={handleTableChange}
+              scroll={{ x: "max-content" }} 
             />
         }
         {/* <Table columns={columns} dataSource={tableData}  style={{margin:"1rem 0",fontSize:"1.5rem"}}/> */}

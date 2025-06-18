@@ -853,25 +853,27 @@ try {
           </Col>
 
           {
-            loaderData ?
-              <div className="" style={{ display: 'flex', justifyContent: 'center', width: "100%", height: "300px" }}>
+            // loaderData ?
+            //   <div className="" style={{ display: 'flex', justifyContent: 'center', width: "100%", height: "300px" }}>
 
-                <Hourglass
-                  visible={true}
-                  height="40"
-                  width="40"
-                  ariaLabel="hourglass-loading"
-                  wrapperStyle={{}}
-                  wrapperClass=""
-                  colors={[themeStyles.primary, themeStyles.primary]}
-                />
-              </div>
-              :
+            //     <Hourglass
+            //       visible={true}
+            //       height="40"
+            //       width="40"
+            //       ariaLabel="hourglass-loading"
+            //       wrapperStyle={{}}
+            //       wrapperClass=""
+            //       colors={[themeStyles.primary, themeStyles.primary]}
+            //     />
+            //   </div>
+            //   :
               <>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                   <Card bordered={false} className="criclebox h-full">
                     {/* <LineChart data={tableData}/> */}
                     {
+
+                      
                       productionData && (
                         <ProductionVsReject data={productionData} />
 
@@ -882,6 +884,19 @@ try {
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                   <Card bordered={false} className="criclebox h-full">
                     {
+                            loaderData ?
+                            <div className="" style={{ display: 'flex', justifyContent: 'center',alignItems:"center" , width: "100%", height: "300px" }}>
+              
+                              <Hourglass
+                                visible={true}
+                                height="40"
+                                width="40"
+                                ariaLabel="hourglass-loading"
+                                wrapperStyle={{}}
+                                wrapperClass=""
+                                colors={[themeStyles.primary, themeStyles.primary]}
+                              />
+                            </div> :
                       tableData && (
 
                         <StackChart data={tableData} />
@@ -893,6 +908,19 @@ try {
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                   <Card bordered={false} className="criclebox h-full">
                     {
+                            loaderData ?
+                            <div className="" style={{ display: 'flex', justifyContent: 'center', width: "100%", height: "300px" }}>
+              
+                              <Hourglass
+                                visible={true}
+                                height="40"
+                                width="40"
+                                ariaLabel="hourglass-loading"
+                                wrapperStyle={{}}
+                                wrapperClass=""
+                                colors={[themeStyles.primary, themeStyles.primary]}
+                              />
+                            </div> :
                       tableData && (
 
                         <PieChart data={tableData} selectedDate={selectedDate} />
